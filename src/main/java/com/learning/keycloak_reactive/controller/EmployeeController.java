@@ -25,17 +25,17 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping
+    @PostMapping("/admin")
     public Mono<Employee> createEmployee(@RequestBody Employee employee) {
         return employeeService.createEmployee(employee);
     }
 
-    @GetMapping
+    @GetMapping("/admin")
     public Flux<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public Mono<Employee> getEmployeeByUserId(@PathVariable String id) {
         return employeeService.getEmployeeByUserId(id);
     }
